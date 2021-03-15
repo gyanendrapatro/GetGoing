@@ -19,5 +19,8 @@ class EventService:
     def get_user(self, email, password):
         return event_repository.get_user(email, password)
 
+    def get_product_detail(self, productid):
+        return event_repository.get_product_detail(productid)
+
 
 event_service = EventService()

@@ -39,6 +39,18 @@ class EventRepository():
             res['country'] = row[2]
         return res
 
+    def get_product_detail(self, productid):
+        sql_query = """select * from orders where Product_id = :productid"""
+
+        result = self.execute_query(sql_query, {'productid': productid})
+        res = {}
+        for row in result:
+            res['productid'] = row[0]
+            res['customerid'] = row[1]
+            res['price'] = row[3]
+            res['year'] = row[2]
+        return res
+
 
     def get_events(self):
         sql_query = """select badge_id , timestamp , data from Ct_EventLog order by badge_id, [timestamp] desc"""

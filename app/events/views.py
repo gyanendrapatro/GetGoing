@@ -32,7 +32,13 @@ def add_users():
 def get_users():
     email = request.get_json().get('email')
     password = request.get_json().get('password')
-    user = event_service.get_user(email, password)
+    # user = event_service.get_user(email, password)
+    return jsonify({"user": 'hello'})
+
+@events_bp.route('/getproduct', methods=["GET"])
+def get_products():
+    productid = request.get_json().get('productid')
+    user = event_service.get_product_detail(productid)
     return jsonify(user)
 
 # @events_bp.route('/trunc', methods=["GET"])
